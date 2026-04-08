@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const profile = {
   name: 'Manuel Perez Gil',
@@ -56,7 +56,7 @@ const projectSections = [
     subtitle: 'Multi-Language Real-Time Chat Web Application',
     teaser: 'Real-time multilingual messaging with live conversations and secure communication.',
     description:
-      'AnyLang is a real-time cross-language chat platform built around live communication, localization, and a responsive multi-panel interface. I developed the application using Next.js 14 and React 18, building a three-column layout that manages active conversations, threaded messaging, and user state in real time.',
+      'I built AnyLang as a real-time cross-language chat platform focused on live communication, localization, and a responsive multi-panel interface. Using Next.js 14 and React 18, I developed a three-column layout that manages active conversations, threaded messaging, and user state in real time.',
     details:
       'On the backend, I engineered a Node.js and Socket.IO system for live messaging, typing indicators, and persistent conversation logging. I also implemented JWT-based authentication and AES-256-CBC encryption for secure communication, while supporting user profiles and production-oriented application behavior.',
     tech: ['Next.js 14', 'React 18', 'Node.js', 'Socket.IO', 'JWT', 'AES-256-CBC'],
@@ -68,7 +68,7 @@ const projectSections = [
     subtitle: 'Machine Learning Web Application',
     teaser: 'Content-based recommendations powered by TMDB data and efficient similarity search.',
     description:
-      'This project is a content-based recommendation engine built on a dataset of more than 5,000 films from TMDB. I used feature preprocessing and cosine similarity to generate relevant recommendations based on movie characteristics.',
+      'I built this content-based recommendation engine on a dataset of more than 5,000 films from TMDB. I used feature preprocessing and cosine similarity to generate relevant recommendations based on movie characteristics.',
     details:
       'I developed the front end in Streamlit and integrated the TMDB API to retrieve movie posters and metadata dynamically. To improve performance, I used precomputed similarity matrices and serialized artifacts for efficient recommendation retrieval at inference time.',
     tech: ['Python', 'Streamlit', 'TMDB API', 'Pandas', 'Cosine Similarity'],
@@ -80,7 +80,7 @@ const projectSections = [
     subtitle: 'Machine Learning / AI Web Application',
     teaser: 'Resume parsing, job matching, and AI-generated feedback in a single workflow.',
     description:
-      'The AI Resume Analyzer is a full-stack tool for evaluating how well a resume aligns with a job description. It parses PDF resumes, extracts useful text, and compares skills and keywords against job requirements to produce a practical alignment score.',
+      'I built the AI Resume Analyzer as a full-stack tool for evaluating how well a resume aligns with a job description. It parses PDF resumes, extracts useful text, and compares skills and keywords against job requirements to produce a practical alignment score.',
     details:
       'I built backend APIs with FastAPI and used the OpenAI API to generate targeted feedback such as missing skills and improved bullet suggestions. I also created a Streamlit interface for resume upload, analysis, scoring, and ATS-style recommendations.',
     tech: ['FastAPI', 'OpenAI API', 'Streamlit', 'Python', 'PDF Parsing'],
@@ -95,19 +95,64 @@ const experience = [
     role: 'IT Student Technician',
     org: 'Classroom Technology Services (IT Help Central), Texas Tech University',
     summary:
-      'Manage hardware and software deployments for Windows and macOS classroom systems across campus and resolve technical escalations for faculty and students in high-availability teaching environments.',
+      'I manage hardware and software deployments for Windows and macOS classroom systems across campus and resolve technical escalations for faculty and students in high-availability teaching environments.',
   },
   {
     period: 'May 2025 - January 2026',
     role: 'Research Software Engineer',
     org: 'Data Visualization Lab (IDVL), Texas Tech University',
     summary:
-      'Engineered an interactive analytics platform in Python, Dash, and Plotly to explore 324,000+ records across 64 features, applied PCA and clustering to uncover patterns, and led the end-to-end data pipeline and technical presentation of findings.',
+      'I engineered an interactive analytics platform in Python, Dash, and Plotly to explore 324,000+ records across 64 features, applied PCA and clustering to uncover patterns, and led the end-to-end data pipeline and technical presentation of findings.',
   },
 ]
 
+function LinkedInIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M6.94 8.5V19H3.45V8.5h3.49ZM7.16 5.26c0 1-.74 1.8-1.97 1.8-1.18 0-1.92-.8-1.92-1.8 0-1.03.76-1.81 1.95-1.81 1.2 0 1.93.78 1.94 1.81ZM20.55 12.58V19h-3.48v-6.02c0-1.51-.54-2.54-1.89-2.54-1.03 0-1.64.69-1.91 1.36-.1.24-.12.57-.12.91V19H9.66s.05-9.72 0-10.5h3.49v1.49l-.02.03h.02v-.03c.46-.71 1.28-1.72 3.11-1.72 2.27 0 3.98 1.48 3.98 4.65Z" />
+    </svg>
+  )
+}
+
+function GitHubIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 .5C5.65.5.5 5.7.5 12.12c0 5.14 3.3 9.5 7.9 11.03.58.11.79-.25.79-.56 0-.27-.01-1.18-.02-2.13-3.22.71-3.9-1.38-3.9-1.38-.52-1.35-1.28-1.7-1.28-1.7-1.05-.73.08-.72.08-.72 1.16.08 1.78 1.21 1.78 1.21 1.03 1.79 2.7 1.27 3.36.97.1-.76.4-1.27.72-1.56-2.57-.3-5.27-1.3-5.27-5.78 0-1.28.45-2.33 1.19-3.16-.12-.3-.52-1.5.11-3.13 0 0 .97-.31 3.19 1.2a10.97 10.97 0 0 1 5.81 0c2.21-1.51 3.18-1.2 3.18-1.2.64 1.63.24 2.83.12 3.13.74.83 1.19 1.88 1.19 3.16 0 4.49-2.7 5.48-5.28 5.77.41.36.78 1.07.78 2.16 0 1.56-.01 2.81-.01 3.19 0 .31.21.68.8.56 4.59-1.53 7.88-5.89 7.88-11.03C23.5 5.7 18.35.5 12 .5Z" />
+    </svg>
+  )
+}
+
 function App() {
   const [selectedProject, setSelectedProject] = useState(projectSections[0])
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const elements = document.querySelectorAll('[data-reveal]')
+
+    if (reduceMotion) {
+      elements.forEach((element) => element.classList.add('is-visible'))
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+
+          entry.target.classList.add('is-visible')
+          observer.unobserve(entry.target)
+        })
+      },
+      {
+        threshold: 0.16,
+        rootMargin: '0px 0px -8% 0px',
+      }
+    )
+
+    elements.forEach((element) => observer.observe(element))
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <div className="page-shell">
@@ -143,6 +188,9 @@ function App() {
                   Enter Portfolio
                 </a>
                 <a className="hero-link" href={profile.github} target="_blank" rel="noreferrer">
+                  <span className="icon-badge" aria-hidden="true">
+                    <GitHubIcon />
+                  </span>
                   Visit GitHub
                 </a>
               </div>
@@ -152,31 +200,33 @@ function App() {
 
         <section className="content-section intro-section" id="about">
           <div className="section-inner">
-            <div className="section-kicker">About</div>
+            <div className="section-kicker reveal reveal-fade" data-reveal>
+              About
+            </div>
             <div className="content-grid">
-              <div className="main-column">
+              <div className="main-column reveal reveal-up" data-reveal>
                 <h2>{profile.title}</h2>
                 <p>
-                  {profile.name} is a developer and researcher focused on software design,
-                  frontend and full-stack engineering, machine learning applications, and data
-                  visualization. His work spans real-time web systems, interactive analytical
-                  interfaces, and AI-assisted tools designed to solve practical problems.
+                  I am a developer and researcher focused on software design, frontend and
+                  full-stack engineering, machine learning applications, and data visualization.
+                  My work spans real-time web systems, interactive analytical interfaces, and
+                  AI-assisted tools designed to solve practical problems.
                 </p>
                 <p>
-                  He is currently completing his Bachelor of Science in Computer Science at Texas
-                  Tech University and is interested in software engineering opportunities where he
-                  can contribute to products with meaningful technical depth and strong user-facing
-                  execution.
+                  I am currently completing my Bachelor of Science in Computer Science at Texas
+                  Tech University, and I am interested in software engineering opportunities where
+                  I can contribute to products with meaningful technical depth and strong
+                  user-facing execution.
                 </p>
               </div>
               <aside className="side-column">
-                <div className="info-panel">
+                <div className="info-panel reveal reveal-right reveal-delay-1" data-reveal>
                   <h3>Education</h3>
                   <p className="panel-strong">{education.school}</p>
                   <p>{education.degree}</p>
                   <p>{education.meta}</p>
                 </div>
-                <div className="info-panel">
+                <div className="info-panel reveal reveal-right reveal-delay-2" data-reveal>
                   <h3>Relevant Coursework</h3>
                   <ul className="simple-list">
                     {education.coursework.map((item) => (
@@ -191,11 +241,19 @@ function App() {
 
         <section className="content-section" id="skills">
           <div className="section-inner">
-            <div className="section-kicker">Skills</div>
-            <h2>Technical Areas</h2>
+            <div className="section-kicker reveal reveal-fade" data-reveal>
+              Skills
+            </div>
+            <h2 className="reveal reveal-up" data-reveal>
+              Technical Areas
+            </h2>
             <div className="stacked-sections">
-              {skillSections.map((section) => (
-                <article className="text-block" key={section.title}>
+              {skillSections.map((section, index) => (
+                <article
+                  className={`text-block reveal reveal-up reveal-delay-${Math.min(index + 1, 4)}`}
+                  data-reveal
+                  key={section.title}
+                >
                   <h3>{section.title}</h3>
                   <p>{section.text}</p>
                 </article>
@@ -206,21 +264,26 @@ function App() {
 
         <section className="content-section" id="projects">
           <div className="section-inner">
-            <div className="section-kicker">Portfolio</div>
-            <h2>Selected Projects</h2>
-            <p className="section-note">
+            <div className="section-kicker reveal reveal-fade" data-reveal>
+              Portfolio
+            </div>
+            <h2 className="reveal reveal-up" data-reveal>
+              Selected Projects
+            </h2>
+            <p className="section-note reveal reveal-up reveal-delay-1" data-reveal>
               These projects show my work across full-stack engineering, machine learning, and
               AI-assisted software.
             </p>
 
             <div className="project-gallery">
-              {projectSections.map((project) => (
+              {projectSections.map((project, index) => (
                 <button
                   type="button"
-                  className={`project-tile ${project.accentClass} ${
+                  className={`project-tile reveal reveal-up reveal-delay-${Math.min(index + 1, 3)} ${project.accentClass} ${
                     selectedProject.title === project.title ? 'is-active' : ''
                   }`}
                   key={project.title}
+                  data-reveal
                   onClick={() => setSelectedProject(project)}
                 >
                   <span className="project-tile-overlay" />
@@ -232,7 +295,7 @@ function App() {
               ))}
             </div>
 
-            <article className="project-detail-card">
+            <article className="project-detail-card reveal reveal-up reveal-delay-2" data-reveal>
               <div className="project-heading">
                 <h3>{selectedProject.title}</h3>
                 <p>{selectedProject.subtitle}</p>
@@ -250,7 +313,7 @@ function App() {
                 </a>
               </div>
             </article>
-            <div className="project-hint">
+            <div className="project-hint reveal reveal-fade reveal-delay-3" data-reveal>
               Click a project tile above to switch the detail view.
             </div>
           </div>
@@ -258,11 +321,19 @@ function App() {
 
         <section className="content-section" id="timeline">
           <div className="section-inner">
-            <div className="section-kicker">Timeline</div>
-            <h2>Experience</h2>
+            <div className="section-kicker reveal reveal-fade" data-reveal>
+              Timeline
+            </div>
+            <h2 className="reveal reveal-up" data-reveal>
+              Experience
+            </h2>
             <div className="timeline-list">
-              {experience.map((item) => (
-                <article className="timeline-entry" key={`${item.role}-${item.period}`}>
+              {experience.map((item, index) => (
+                <article
+                  className={`timeline-entry reveal reveal-left reveal-delay-${Math.min(index + 1, 2)}`}
+                  data-reveal
+                  key={`${item.role}-${item.period}`}
+                >
                   <div className="timeline-period">{item.period}</div>
                   <div className="timeline-content">
                     <h3>{item.role}</h3>
@@ -277,9 +348,13 @@ function App() {
 
         <section className="content-section contact-section" id="contact">
           <div className="section-inner">
-            <div className="section-kicker">Contact Me</div>
-            <h2>Get in touch</h2>
-            <div className="contact-grid">
+            <div className="section-kicker reveal reveal-fade" data-reveal>
+              Contact Me
+            </div>
+            <h2 className="reveal reveal-up" data-reveal>
+              Get in touch
+            </h2>
+            <div className="contact-grid reveal reveal-up reveal-delay-1" data-reveal>
               <div>
                 <p>
                   For software engineering opportunities, internships, research collaboration, or
@@ -289,10 +364,16 @@ function App() {
               <div className="contact-list">
                 <a href={`mailto:${profile.email}`}>{profile.email}</a>
                 <a href={`tel:${profile.phone.replace(/[^\d+]/g, '')}`}>{profile.phone}</a>
-                <a href={profile.linkedin} target="_blank" rel="noreferrer">
+                <a className="social-link" href={profile.linkedin} target="_blank" rel="noreferrer">
+                  <span className="icon-badge" aria-hidden="true">
+                    <LinkedInIcon />
+                  </span>
                   LinkedIn
                 </a>
-                <a href={profile.github} target="_blank" rel="noreferrer">
+                <a className="social-link" href={profile.github} target="_blank" rel="noreferrer">
+                  <span className="icon-badge" aria-hidden="true">
+                    <GitHubIcon />
+                  </span>
                   GitHub
                 </a>
                 <span>{profile.location}</span>
