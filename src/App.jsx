@@ -5,7 +5,7 @@ const profile = {
   title: 'Computer Science Student, Software Developer, and Research Engineer',
   intro:
     "I'm a Computer Science student at Texas Tech University with interests in software engineering, full-stack web development, interactive data systems, and applied AI. I like building products that combine strong technical execution with interfaces people can actually use.",
-  location: 'Lubbock, Texas',
+  location: 'Lubbock, TX',
   email: 'mperezgi@ttu.edu',
   phone: '+1 (806) 283-3944',
   linkedin: 'https://linkedin.com/in/manuelantoperezgil/',
@@ -15,7 +15,7 @@ const profile = {
 const education = {
   school: 'Texas Tech University',
   degree: 'Bachelor of Science in Computer Science',
-  meta: 'Expected May 2026 | GPA: 3.49 / 4.0',
+  meta: 'Expected May 2027 | GPA: 3.49 / 4.0',
   coursework: [
     'Software Engineering',
     'Theory of Automata',
@@ -31,7 +31,7 @@ const skillSections = [
   {
     title: 'Web Development',
     text:
-      'I build frontend and full-stack applications using React, Next.js, Node.js, TypeScript, JavaScript, HTML, CSS, MongoDB, Firebase, and deployment platforms such as Vercel and AWS.',
+      'I build frontend and full-stack applications using React, Next.js, Node.js, JavaScript, TypeScript, HTML, CSS, SQL, MongoDB, Firebase, and deployment platforms such as Vercel and AWS.',
   },
   {
     title: 'Machine Learning and AI',
@@ -41,12 +41,12 @@ const skillSections = [
   {
     title: 'Data Visualization and Analysis',
     text:
-      'In research settings I have worked with Dash, Plotly, clustering, PCA, and high-dimensional industrial data to build interactive systems that surface insights clearly.',
+      'In research settings I have worked with Dash, Plotly, clustering, PCA, Pandas, and high-dimensional industrial data to build interactive systems that surface insights clearly.',
   },
   {
     title: 'Engineering Tools',
     text:
-      'I regularly use Git, Docker, Linux, Postgres, MongoDB, Google Cloud Platform, AWS, Figma, Jupyter, and modern development workflows for shipping and maintaining software.',
+      'I regularly use Python, C, Java, Git, Docker, Linux, Postgres, MongoDB, Google Cloud Platform, AWS, Figma, Jupyter, and modern development workflows for shipping and maintaining software.',
   },
 ]
 
